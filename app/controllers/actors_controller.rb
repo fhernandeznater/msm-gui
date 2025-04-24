@@ -1,4 +1,32 @@
 class ActorsController < ApplicationController
+  def create
+    a = Director.new
+    a.name = params.fetch("the_name")
+    a.dob = params.fetch("the_dob")
+    a.bio = params.fetch("the_bio")
+    a.image = params.fetch("the_image")
+
+    a.save
+
+    redirect_to("/actors")
+  end
+
+  def destroy
+    the_id = params.fetch("an_id")
+    
+    matching_records = Actpr.where( :id => the_id)
+
+    the_actor = matching_records.at(0)
+
+    the_actor.destroy
+
+    redirect_to("/actors")
+  end
+
+  def update
+
+  end 
+
   def index
     matching_actors = Actor.all
     @list_of_actors = matching_actors.order({ :created_at => :desc })
