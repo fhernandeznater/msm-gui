@@ -1,4 +1,8 @@
 class MoviesController < ApplicationController
+  def update
+
+  end
+  
   def create
     m = Movie.new
     m.title = params.fetch("the_title")
