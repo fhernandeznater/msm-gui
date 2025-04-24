@@ -37,7 +37,7 @@ class DirectorsController < ApplicationController
 
     the_director.save
 
-    redirect_to("/movies/#{the_director.id}")
+    redirect_to("/directors/#{the_director.id}")
   end 
 
 
